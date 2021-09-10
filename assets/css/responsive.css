@@ -18,7 +18,10 @@
 
 /* Normal screen :992px. */
 @media (min-width: 992px) and (max-width: 1199px) {
-
+    body::before { 
+        left: 16%;
+        width: 84%; 
+    }
     .header-area {
         padding: 20px;
     }
@@ -62,6 +65,21 @@
     left: -0.5%;
     width: 101%;
 }
+body::before { 
+    top: 20%;
+    left: 0;
+    width: 100%; 
+}
+
+
+
+
+
+
+
+
+
+
 }
 
  
@@ -124,6 +142,9 @@
 }
 .user_link {
     max-width: 100%;
+}
+body::before{
+    display: none;
 }
 
 }

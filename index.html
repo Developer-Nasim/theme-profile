@@ -303,13 +303,14 @@
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/main.js"></script> 
         <script>
+            let body = document.querySelector('body');
             var rootCss = document.querySelector(':root');
             localStorage.setItem('theme', "dark") 
             let sbtn = document.querySelectorAll('.switch input[type="checkbox"]') 
             let logo = document.querySelector('.logo-area img')
             sbtn.forEach(btn => { 
                 btn.addEventListener('click', (e) => {
-                    console.log('hello')
+                    body.classList.toggle('lighTheme')
                     if (e.target.checked) {
                         localStorage.setItem('theme', "dark")
                     }else{
