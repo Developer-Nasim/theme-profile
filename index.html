@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="assets/css/nice-select.css">
         <link rel="stylesheet" href="assets/css/fontawesome.min.css">  
         <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/responsive.css"> 
+        <link rel="stylesheet" href="assets/css/responsive.css">  
     </head>
     <body>
 
@@ -116,8 +116,8 @@
                     </ul>
                 </nav>
                 <div class="mode">
-                    <label class="switch">
-                        <input type="checkbox" checked>
+                    <label for="mmnu" class="switch">
+                        <input id="mmnu" type="checkbox" checked>
                         <span class="slider round"></span>
                     </label> 
                     <p>Night Mode</p>
@@ -142,7 +142,7 @@
                             <h4>Good Morning, <span>John</span></h4>
                         </div>
                     </div>
-                </div>
+                </div> 
                 <div class="row">
                     <div class="col-lg-2  col-xl-3 d-md-none d-xl-block d-lg-block d-sm-none m_mb_none">
                         <div class="menu">
@@ -187,8 +187,8 @@
                                 </ul>
                             </nav>
                             <div class="mode">
-                                <label class="switch">
-                                    <input type="checkbox" checked>
+                                <label for="mbtn" class="switch">
+                                    <input id="mbtn" type="checkbox" checked>
                                     <span class="slider round"></span>
                                 </label> 
                                 <p>Night Mode</p>
@@ -215,6 +215,49 @@
                                 </div>
                             </div>
                             <div class="col-lg-9 col-xl-8 col-md-8 col-12 col-sm-8">
+                                
+                                <div class="postBlk">
+                                    <form action="#">
+                                        <textarea placeholder="Type something"></textarea>
+                                        <div class="bottom"> 
+                                            <div class="custom-radios">
+                                                <div>
+                                                    <input type="radio" id="color-1" name="color" value="color-1" checked>
+                                                    <label for="color-1">
+                                                        <span>
+                                                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                                                        </span>
+                                                    </label>
+                                                </div> 
+                                                <div>
+                                                    <input type="radio" id="color-2" name="color" value="color-2">
+                                                    <label for="color-2">
+                                                        <span>
+                                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                                                        </span>
+                                                    </label>
+                                                </div> 
+                                                <div>
+                                                    <input type="radio" id="color-3" name="color" value="color-3">
+                                                    <label for="color-3">
+                                                        <span>
+                                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                                                        </span>
+                                                    </label>
+                                                </div> 
+                                                <div>
+                                                    <input type="radio" id="color-4" name="color" value="color-4">
+                                                    <label for="color-4">
+                                                        <span>
+                                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div> 
+                                            <button type="button">Submit</button>
+                                        </div>
+                                    </form>
+                                </div> 
                                 <div class="user_cont">
                                     <div class="feature" >
                                         <a href="">Featured</a>
@@ -239,15 +282,7 @@
                                                 <span>#tiktok #entertainment #funny #lol #social #media </span>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row mt-5">
-                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center">
-                                            <a href="#" class="c_rit">Privacy Copyright</a>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-6 col-12 text-center">
-                                            <a href="#" class="post">Send New Post</a>
-                                        </div>
-                                    </div>
+                                    </div> 
                                 </div>
                             </div>
                         </div>
@@ -255,6 +290,10 @@
                 </div>
             </div>
         </section>
+
+        
+        <p class="c_rit">Privacy Copyright</p>
+
     </main>
     
 		<!-- JS here --> 
@@ -263,5 +302,41 @@
         <script src="assets/js/popper.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/main.js"></script> 
+        <script>
+            var rootCss = document.querySelector(':root');
+            localStorage.setItem('theme', "dark") 
+            let sbtn = document.querySelectorAll('.switch input[type="checkbox"]') 
+            let logo = document.querySelector('.logo-area img')
+            sbtn.forEach(btn => { 
+                btn.addEventListener('click', (e) => {
+                    console.log('hello')
+                    if (e.target.checked) {
+                        localStorage.setItem('theme', "dark")
+                    }else{
+                        localStorage.setItem('theme', "light")
+                    }
+
+                    if (localStorage.getItem('theme') == "light") {
+                        rootCss.style.setProperty('--thm', '#C4C4C4');
+                        rootCss.style.setProperty('--bodyBackg', '#fff');
+                        rootCss.style.setProperty('--whiteColor', '#333');
+                        rootCss.style.setProperty("--pr_soft_back", "rgb(0 0 0 / 10%)");
+                        rootCss.style.setProperty("--grayColor", "rgb(107 101 101)");
+                        rootCss.style.setProperty("--grayShap", "rgb(56 56 56 / 7%)");
+                        logo.style.filter = "invert(1)";
+                    }else{ 
+                        rootCss.style.setProperty('--thm', '#C4C4C4');
+                        rootCss.style.setProperty('--bodyBackg', '#1F1D2C');
+                        rootCss.style.setProperty('--whiteColor', '#fff');
+                        rootCss.style.setProperty("--pr_soft_back", "rgb(255 255 255 / 10%)");
+                        rootCss.style.setProperty("--grayColor", "rgb(255 255 255 / 40%)");
+                        rootCss.style.setProperty("--grayShap", "rgba(255, 255, 255, 0.07)");
+                        logo.style.filter = "invert(0)";
+                    } 
+                })
+            }) 
+
+
+        </script>
     </body>
 </html>
